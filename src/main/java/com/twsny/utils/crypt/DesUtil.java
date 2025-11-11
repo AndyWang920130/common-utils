@@ -1,4 +1,4 @@
-package com.twsny.utils.encrypt;
+package com.twsny.utils.crypt;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -11,7 +11,7 @@ import java.util.Base64;
 /**
  * 对称加密
  * be replaced by AESUtil
- * @see com.twsny.utils.encrypt.AESUtil
+ * @see com.twsny.utils.crypt.AESUtil
  */
 @Deprecated
 public class DesUtil

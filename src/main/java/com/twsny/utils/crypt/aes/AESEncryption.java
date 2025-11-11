@@ -1,4 +1,4 @@
-package com.twsny.utils.encrypt.aes;
+package com.twsny.utils.crypt.aes;
 
 import org.apache.commons.codec.binary.Base64;
 

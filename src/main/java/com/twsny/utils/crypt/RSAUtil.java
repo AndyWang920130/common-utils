@@ -1,8 +1,7 @@
-package com.twsny.utils.encrypt;
+package com.twsny.utils.crypt;
 
 
 import org.apache.commons.codec.binary.Base64;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import javax.crypto.Cipher;
 import java.security.*;
@@ -13,6 +12,9 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 非对称加密 可逆
+ */
 public class RSAUtil {
     private static Map<Integer, String> keyMap = new HashMap<Integer, String>();  //用于封装随机产生的公钥与私钥
 

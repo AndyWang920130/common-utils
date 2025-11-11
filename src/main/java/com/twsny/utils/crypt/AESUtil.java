@@ -1,6 +1,5 @@
-package com.twsny.utils.encrypt;
+package com.twsny.utils.crypt;
 
-import com.twsny.utils.signature.ShaUtil;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,13 +8,10 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.Key;
-import java.security.NoSuchProviderException;
 import java.security.Security;
 
 /**
- * 对称加密
+ * 对称加密 可逆
  */
 public class AESUtil
 {

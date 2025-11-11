@@ -1,6 +1,6 @@
 package com.twsny.utils.date;
 
-import com.twsny.utils.signature.ShaUtil;
+import com.twsny.utils.string.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +11,17 @@ import java.util.Date;
 public class DateUtil {
     private static final Logger log = LoggerFactory.getLogger(DateUtil.class);
 
+    public static boolean checkFormat(String strDatetime, String timeFormat) {
+        if (StringUtil.isBlank(strDatetime)) return false;
+        SimpleDateFormat formatDate = new SimpleDateFormat(timeFormat);
+        try {
+            formatDate.parse(strDatetime);
+        } catch (ParseException e) {
+            log.error("parse error: {}", e.getMessage());
+            return false;
+        }
+        return true;
+    }
     public static Date parse(String strDatetime, String timeFormat)
     {
         if(strDatetime == null || strDatetime.length() != timeFormat.length())

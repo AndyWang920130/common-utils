@@ -1,4 +1,4 @@
-package com.twsny.utils.encrypt.aes;
+package com.twsny.utils.crypt.aes;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
