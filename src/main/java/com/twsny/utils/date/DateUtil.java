@@ -49,4 +49,6 @@ public class DateUtil {
         SimpleDateFormat formatDate = new SimpleDateFormat(timeFormat);
         return formatDate.format(datetime);
     }
+
+
 }
