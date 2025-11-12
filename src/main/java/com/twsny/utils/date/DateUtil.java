@@ -50,5 +50,9 @@ public class DateUtil {
         return formatDate.format(datetime);
     }
 
+    public static long currentMillis() {
+        return new Date().getTime();
+    }
+
 
 }

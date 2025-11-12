@@ -5,8 +5,11 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.twsny.utils.http.constants.ContentType;
 import com.twsny.utils.http.constants.RequestMethodType;
 import com.twsny.utils.http.dto.PushRequest;
+import com.twsny.utils.token.JwtUtil;
 import okhttp3.*;
+import org.apache.commons.lang3.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Map;
 
@@ -29,6 +32,16 @@ public class HttpUtil {
             case POST:
             default:
                 return initPostRequest(url, contentType, requestBody, paramMap, headerMap);
+        }
+    }
+
+    public static String getToken(HttpServletRequest request) {
+        String bearerToken = request.getHeader(JwtUtil.AUTHORIZATION_HEADER);
+        if (StringUtils.isNotBlank(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        } else {
+            String token = request.getParameter("token");
+            return token;
         }
     }
 
