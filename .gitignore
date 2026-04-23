@@ -2,3 +2,7 @@
 # Project Specific
 ######################
 /target/**
+
+# IDE
+.idea/
+*.iml
