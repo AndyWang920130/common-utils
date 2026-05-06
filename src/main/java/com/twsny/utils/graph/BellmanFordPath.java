@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Bellman-Ford
+ * Bellman-Ford 可处理负权边
  */
 public class BellmanFordPath {
     static class Edge {

@@ -3,7 +3,7 @@ package com.twsny.utils.graph;
 import java.util.*;
 
 /**
- * BFS
+ * BFS 无权图最短路径
  */
 public class BFSShortestPath {
     public static void main(String[] args) {

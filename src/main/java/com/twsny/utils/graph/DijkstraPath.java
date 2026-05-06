@@ -3,7 +3,7 @@ package com.twsny.utils.graph;
 import java.util.*;
 
 /**
- * Dijkstra
+ * Dijkstra 非负权图最短路径 是一种贪心算法
  */
 public class DijkstraPath {
     static class Edge {
