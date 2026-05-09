@@ -76,9 +76,17 @@ public class AESUtil
 
     public static void main(String[] args) {
         String key128 = "1234567890abcdef";
-        String value = "5678";
+        String value = "\n" +
+                "华为云正式服务器:账号/密码 root/ry7Nd0gX&^W^\n" +
+                "华为云测试demo服务器账号/密码 root/jousingAED62995391    sftpanonymous/62995391jxaed\n" +
+                "华为云测试第三方服务器账号/密码 root/jousingAED62995391\n" +
+                "华为云测试数据库服务器root账号密码  root/62995391jxaed  rw_user/mi8^gXP$KBTH r_user/mi8^gXP$KBTH  test_user/62995391jxaed  canal/62995391jxaed\n" +
+                "华为云生产数据库服务器root账号密码  root/mi8^gXP$KBTH rw_user/mi8^gXP$KBTH r_user/mi8^gXP$KBTH canal/62995391jxaed\n" +
+                "华为云生产库ToG账号密码 root/mi8^gXP$KBTH adapter/62995391jxaed   r_user/62995391jxaed";
         byte[] encryptValue = AESUtil.encrypt(key128.getBytes(StandardCharsets.UTF_8), value.getBytes(StandardCharsets.UTF_8));
         byte[] decryptValue = AESUtil.decrypt(key128.getBytes(StandardCharsets.UTF_8), encryptValue);
-        System.out.println("result:" + new String(decryptValue));
+        System.out.println("originalValue:" + value);
+        System.out.println("encryptValue:" + new String(encryptValue));
+        System.out.println("decryptValue:" + new String(decryptValue));
     }
 }
