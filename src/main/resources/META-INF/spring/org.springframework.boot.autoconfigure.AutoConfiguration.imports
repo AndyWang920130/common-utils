@@ -1,0 +1,3 @@
+com.twsny.config.ExcelAutoConfiguration
+com.twsny.config.redis.RedissonAutoConfiguration
+com.twsny.config.redis.LettuceConfiguration

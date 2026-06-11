@@ -1,6 +1,7 @@
 package com.twsny.rest;
 
-import com.twsny.service.redis.TestRedissonService;
+import com.twsny.service.redis.LettuceService;
+import com.twsny.service.redis.RedissonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,14 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/test")
+@RequestMapping("/api/v1/redis")
 public class TestResource {
     private final Logger log = LoggerFactory.getLogger(TestResource.class);
 
-    private final TestRedissonService testRedissonService;
+    private final RedissonService redissonService;
 
-    public TestResource(TestRedissonService testRedissonService) {
-        this.testRedissonService = testRedissonService;
+    private final LettuceService lettuceService;
+
+    public TestResource(RedissonService redissonService, LettuceService lettuceService) {
+        this.redissonService = redissonService;
+        this.lettuceService = lettuceService;
     }
 
     @GetMapping("/sleep")
@@ -33,7 +37,7 @@ public class TestResource {
     public void sleepWithLock() {
         String threadName = Thread.currentThread().getName();
         log.info("threadName: {}, sleep withLock", threadName);
-        testRedissonService.executeWithLock(() -> {
+        redissonService.executeWithLock(() -> {
             try {
                 Thread.sleep(10000L);
             } catch (InterruptedException e) {
@@ -43,4 +47,15 @@ public class TestResource {
         });
 
     }
+
+    @GetMapping("/lettuceSetStr")
+    public void lettuceSetStr() {
+        lettuceService.setStr("aaaa");
+    }
+
+    @GetMapping("/lettuceGetStr")
+    public String lettuceGetStr() {
+        return lettuceService.getStr();
+    }
+
 }

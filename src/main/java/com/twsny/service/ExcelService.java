@@ -17,7 +17,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+// @Service
 public class ExcelService {
     private static List<ExcelExampleDTO> excelExampleDTOList;
 

@@ -8,10 +8,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 @Service
-public class TestRedissonService {
+public class RedissonService {
     private final RedissonClient redissonClient;
 
-    public TestRedissonService(RedissonClient redissonClient) {
+    public RedissonService(RedissonClient redissonClient) {
         this.redissonClient = redissonClient;
     }
 
